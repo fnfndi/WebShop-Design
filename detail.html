@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Produk</title>
+    <style>
+        body { font-family: 'Helvetica Neue', sans-serif; padding: 20px; line-height: 1.6; color: #333; }
+        .hero-img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
+        h1 { font-size: 22px; margin: 20px 0 10px; }
+        .price { font-size: 20px; color: #e44d26; font-weight: bold; margin-bottom: 20px; }
+        .btn-wa { background: #25D366; color: white; padding: 15px; text-align: center; display: block; text-decoration: none; border-radius: 50px; font-weight: bold; }
+        .btn-back { display: block; text-align: center; margin-top: 20px; color: #888; text-decoration: none; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <img id="prodImg" class="hero-img" src="">
+    <h1 id="prodName">Nama Produk</h1>
+    <div id="prodPrice" class="price">Harga</div>
+    <p id="prodDesc">Deskripsi akan muncul di sini.</p>
+    
+    <a id="waLink" href="#" class="btn-wa">Pesan Sekarang via WhatsApp</a>
+    <a href="index.html" class="btn-back">← Kembali ke Katalog</a>
+
+    <script>
+        // Mengambil data dari URL
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('prodName').innerText = params.get('name');
+        document.getElementById('prodPrice').innerText = params.get('price');
+        document.getElementById('prodDesc').innerText = params.get('desc');
+        document.getElementById('prodImg').src = params.get('img');
+        document.getElementById('waLink').href = "https://wa.me/6281234567890?text=Halo%20Luxe%20Velo,%20saya%20tertarik%20dengan%20" + params.get('name');
+    </script>
+</body>
+</html>
